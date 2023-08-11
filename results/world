@@ -1,0 +1,17 @@
+import pybullet as p
+cin = p.connect(p.SHARED_MEMORY)
+if (cin < 0):
+    cin = p.connect(p.GUI)
+objects = [p.loadURDF("plane.urdf", 0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000)]
+objects = [p.loadURDF("table/table.urdf", 0.000000,0.000000,0.180000,0.000000,0.000000,0.000000,1.000000)]
+objects = [p.loadURDF("objects/hole.urdf", 0.501000,0.000000,0.815000,0.000000,0.000000,-0.707107,0.707107)]
+objects = p.loadSDF("objects/robot_peg.sdf")
+ob = objects[0]
+p.resetBasePositionAndOrientation(ob,[-0.300000,-0.300000,0.815000],[0.000000,0.000000,0.000000,1.000000])
+jointPositions=[ 0.006418, 0.413184, -0.011401, -1.589317, 0.005379, 1.137684, -0.006539, 0.000000 ]
+for jointIndex in range (p.getNumJoints(ob)):
+	p.resetJointState(ob,jointIndex,jointPositions[jointIndex])
+
+p.setGravity(0.000000,0.000000,-9.807000)
+p.stepSimulation()
+p.disconnect()

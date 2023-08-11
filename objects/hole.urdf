@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<robot name="multi_hole_v1">
+  <link name="link1">
+  <visual>
+    <geometry>
+      <mesh filename="/hole.stl"/>
+    </geometry>
+  </visual>
+  <collision concave="yes">
+    <geometry>
+      <mesh filename="hole.stl"/>
+    </geometry>
+  </collision>
+</link>
+</robot>

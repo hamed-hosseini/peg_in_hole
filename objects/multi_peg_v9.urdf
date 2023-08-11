@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<robot name="multi_peg_v9">
+  <link name="link1">
+  <visual>
+    <geometry>
+      <mesh filename="/multi_peg_v9.stl"/>
+    </geometry>
+  </visual>
+  <collision>
+    <geometry>
+      <mesh filename="/multi_peg_v9.stl"/>
+    </geometry>
+  </collision>
+</link>
+</robot>
